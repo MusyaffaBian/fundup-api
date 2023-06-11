@@ -6,4 +6,4 @@ RUN pip3 install -r requirements.txt
 COPY . .
 
 EXPOSE 5000 
-CMD exec gunicorn --bind :$PORT main:app --workers 1 --threads 1 --timeout 1
+CMD exec gunicorn --bind :$PORT main:app --workers 1 --threads 1 --timeout 60
