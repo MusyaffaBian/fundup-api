@@ -15,5 +15,8 @@ COPY key.json .
 # Copy the application code
 COPY . .
 
+ARG KEY_JSON
+ENV KEY_JSON=$KEY_JSON
+
 EXPOSE 5000 
 CMD exec gunicorn --bind :5000 main:app --workers 1 --threads 1 --timeout 60
