@@ -19,6 +19,12 @@ load_dotenv()
 # Initialize Flask application
 app = Flask(__name__)   
 
+# Mengambil credential
+KEY_JSON = os.environ.get('KEY_JSON')
+
+# Konfigurasi credential
+app.config['KEY_JSON'] = KEY_JSON
+
 cred = credentials.Certificate(app.config['KEY_JSON'])  # Replace with your own service account key file path
 
 # Initialize Firestore
