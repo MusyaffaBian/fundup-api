@@ -12,15 +12,22 @@ import os
 from dotenv import load_dotenv
 from functools import wraps
 from flask_cors import CORS
+import json
 
 # Load environment variables from .env file
 load_dotenv()
 # Initialize Flask application
 app = Flask(__name__)   
 
+#read key.json
+with open('key.json', 'r') as file:
+	key_json = file.read()
 
-cred = credentials.Certificate('https://storage.googleapis.com/fundup-387016/key.json')  # Replace with your own service account key file path
+#load json content
+cred_json = json.loads(key_json)
 
+#use cred_json
+cred = credentials.Certificate(cred_json)
 
 # Initialize Firestore
 firebase_admin.initialize_app(cred)
