@@ -24,4 +24,4 @@ ENV KEY_JSON=$KEY_JSON
 EXPOSE 8080
 
 # Start the application
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "main:app"]
+CMD "gunicorn", "--bind", "0.0.0.0:8080", "main:app"
