@@ -19,14 +19,11 @@ load_dotenv()
 # Initialize Flask application
 app = Flask(__name__)   
 
-# Mengambil credential
-KEY_JSON = os.environ.get('KEY_JSON')
+cred = credentials.Certificate(app.config['KEY_JSON'])  # Replace with your own service account key file path
 
-# Konfigurasi credential
-app.config['KEY_JSON'] = KEY_JSON
-
-# Mengambil cred_path
-cred_path=app.config['KEY_JSON']
+# Initialize Firestore
+firebase_admin.initialize_app(cred)
+db = firestore.client()
 
 #read key.json
 #with open('key.json', 'r') as file:
@@ -37,10 +34,6 @@ cred_path=app.config['KEY_JSON']
 
 #use cred_json
 #cred = credentials.Certificate(cred_json)
-
-# Initialize Firestore
-firebase_admin.initialize_app(cred)
-db = firestore.client()
 
 
 @app.route('/get-recommendation', methods=['POST'])
