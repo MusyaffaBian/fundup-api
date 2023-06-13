@@ -10,7 +10,7 @@ COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 # Copy the key.json file to the working directory
-COPY key.json .
+# COPY key.json .
 
 # Copy the application code
 COPY . .
