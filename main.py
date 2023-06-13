@@ -12,20 +12,23 @@ import os
 from functools import wraps
 from flask_cors import CORS
 import json
+from google.oauth2 import service_account #ini baru nanti dihapus ya
+from google.cloud import firestore #ini baru nanti dihapus ya
 
 # Initialize Flask application
 app = Flask(__name__)   
 
 # Mengambil credential
-KEY_JSON = os.environ.get('KEY_JSON')
+#KEY_JSON = os.environ.get('KEY_JSON')
 
 # Konfigurasi credential
-app.config['KEY_JSON'] = KEY_JSON
+#app.config['KEY_JSON'] = KEY_JSON
 
-cred = credentials.Certificate(app.config['KEY_JSON'])  # Replace with your own service account key file path
+#cred = credentials.Certificate(app.config['KEY_JSON'])  # Replace with your own service account key file path
 
 # Initialize Firestore
-firebase_admin.initialize_app(cred)
+#inisebelum_firebase_admin.initialize_app(cred)
+firebase_admin.initialize_app() #nanti yg ini dihapus
 db = firestore.client()
 
 #read key.json
