@@ -14,8 +14,6 @@ from functools import wraps
 from flask_cors import CORS
 import json
 
-# Load environment variables from .env file
-load_dotenv()
 # Initialize Flask application
 app = Flask(__name__)   
 
