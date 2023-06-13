@@ -19,15 +19,24 @@ load_dotenv()
 # Initialize Flask application
 app = Flask(__name__)   
 
+# Mengambil credential
+KEY_JSON = os.environ.get('KEY_JSON')
+
+# Konfigurasi credential
+app.config['KEY_JSON'] = KEY_JSON
+
+# Mengambil cred_path
+cred_path=app.config['KEY_JSON']
+
 #read key.json
-with open('key.json', 'r') as file:
-	key_json = file.read()
+#with open('key.json', 'r') as file:
+	#key_json = file.read()
 
 #load json content
-cred_json = json.loads(key_json)
+#cred_json = json.loads(key_json)
 
 #use cred_json
-cred = credentials.Certificate(cred_json)
+#cred = credentials.Certificate(cred_json)
 
 # Initialize Firestore
 firebase_admin.initialize_app(cred)
