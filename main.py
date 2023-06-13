@@ -28,7 +28,7 @@ app = Flask(__name__)
 
 # Initialize Firestore
 #inisebelum_firebase_admin.initialize_app(cred)
-firebase_admin.initialize_app() #nanti yg ini dihapus
+#firebase_admin.initialize_app() #nanti yg ini dihapus
 db = firestore.client()
 
 #read key.json
