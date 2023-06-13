@@ -2,8 +2,8 @@ FROM python:3.9.6
 WORKDIR /app
 
 # Download the key.json file using wget
-RUN apt-get update && apt-get install -y wget
-RUN wget $JSON_KEY
+#RUN apt-get update && apt-get install -y wget
+#RUN wget $JSON_KEY
 
 # Install Python dependencies
 COPY requirements.txt requirements.txt
