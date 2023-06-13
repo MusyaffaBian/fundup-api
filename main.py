@@ -12,6 +12,7 @@ import os
 import json
 from google.oauth2 import service_account #ini baru nanti dihapus ya
 from google.cloud import firestore #ini baru nanti dihapus ya
+from google.auth import exceptions #ini baru nanti dihapus ya
 
 # Initialize Flask application
 app = Flask(__name__)   
@@ -27,7 +28,7 @@ app = Flask(__name__)
 # Initialize Firestore
 #inisebelum_firebase_admin.initialize_app(cred)
 #firebase_admin.initialize_app() #nanti yg ini dihapus
-db = firestore.client()
+db = firestore.Client() #ini diganti c kecil dihapus ya
 
 #read key.json
 #with open('key.json', 'r') as file:
