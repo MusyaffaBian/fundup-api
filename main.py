@@ -41,6 +41,10 @@ db = firestore.Client() #ini diganti c kecil dihapus ya
 #cred = credentials.Certificate(cred_json)
 
 
+@app.route('/', methods=['GET'])
+def fundup():
+    return  "ppp jalan anjai!"
+
 @app.route('/get-recommendation', methods=['POST'])
 def get_recomendation_for_startup():
     # Get the id_token from the request (assuming it's provided in the request)
